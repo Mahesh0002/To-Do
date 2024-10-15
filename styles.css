@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffa4a4, #9beffc);
+    padding: 10px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: linear-gradient(135deg, #b2eeff, #ffa4a4);
+    backdrop-filter: blur(50%);
+    border-radius: 10px;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    box-shadow: 0 4px 20px rgba(192, 248, 255, 0.085);
+    animation: lightMove 7s infinite; /* Animation for moving light */
+}
+
+@keyframes lightMove {
+    0% {
+        box-shadow: 10px 10px 30px rgb(192, 248, 255);
+    }
+    25% {
+        box-shadow: -10px -10px 30px rgb(192, 248, 255);
+    }
+    50% {
+        box-shadow: -10px 10px 30px rgb(202, 248, 255);
+    }
+    75% {
+        box-shadow: 10px -10px 30px rgb(192, 248, 255);
+    }
+    100% {
+        box-shadow: 10px 10px 30px rgb(192, 248, 255);
+    }
+}
+
+.todo-app h2 {
+    color: #000000;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.todo-app h2 img {
+    width: 30px;
+    height: 70%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(237, 238, 240, 0.5); /* Semi-transparent background */
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent; /* Keep input transparent */
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #fabfbf; /* You can adjust this for translucency if needed */
+    color: #b2eeff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 17px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before {
+    content: '';
+    position: absolute; 
+    height: 28px; 
+    width: 28px; 
+    border-radius: 50%; 
+    background-image: url(Images/white-circle.jpg); 
+    background-size: cover; 
+    background-position: center; 
+    top: 12px; 
+    left: 8px; 
+}
+
+ul li::after {
+    content: '';
+    width: 0;
+    height: 100%;
+    top: 0px;
+    border-radius: 40px;
+    background: rgba(237, 238, 240, 0.1);
+    position: absolute;
+    left: 0px;
+    bottom: -6px;
+    transition: width 0.45s; /* Specify property for transition */
+}
+
+ul li:hover::after {
+    width: 100%;
+}
+
+ul li.checked {
+   color: rgba(97, 121, 123, 0.872);
+   text-decoration-line: line-through; 
+}
+
+ul li.checked::before {
+   background-image: url(Images/check.png);
+   background-position: center;
+}
+
+ul li span {
+   position: absolute; 
+   right: 0; 
+   top: 5px; 
+   width: 40px; 
+   height: 40px; 
+   font-size: 22px; 
+   color: #142f2f; 
+   line-height: 40px; 
+   text-align: center; 
+   z-index: 1; /* Bring span above other elements */
+}
+
+ul li span:hover {
+   background: rgba(164, 255, 255, 0.2);
+   border-radius: 50%; 
+}
